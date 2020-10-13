@@ -211,7 +211,7 @@ def main(argv=None, stdout=None, stdin=None):
     custom_fonts = []
     for custom_font in args.customfont or []:
         based_name = Path(custom_font).stem.replace('-', ' ')
-        if not custom_font.startswith('http://', 'https://', 'file://'):
+        if not custom_font.startswith(('http://', 'https://', 'file://')):
             print('Font specified "%s" does have valid format. Must be http://, https:// or file://' % custom_font)
             continue
         custom_fonts.append(

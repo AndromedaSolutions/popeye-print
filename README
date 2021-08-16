@@ -47,10 +47,16 @@ For anyone else external to Andromeda Solutions, that is useless, apart from tha
 
 Create a virtualenv for python3.5 onwards, we tried with 3.8 and it worked like a charm:
 
-virtualenv --python /usr/bin/python3.8  ~/.virtualenv/popeyeprinter
+virtualenv --python /usr/bin/python3.8  ~/.virtualenvs/popeyeprinter
 
-source ~/.virtualenv/popeyeprinter
+source ~/.virtualenvs/popeyeprinter/bin/activate
 
-pip install https://bitbucket.org/andromeda-sysadmin/popeye-print/get/51.zip
+python -m pip install git+https://github.com/AndromedaSolutions/popeye-print.git
 
 Configure in popeye, "custom.conf" a weasyprint_path under [global] to popeyeprint if does not match with the one in local.conf
+
+weasyprint_path = ~/.virtualenvs/popeyeprinter/bin/popeyeprint
+
+or
+
+weasyprint_path = /home/USER_NAME/.virtualenvs/popeyeprinter/bin/popeyeprint
